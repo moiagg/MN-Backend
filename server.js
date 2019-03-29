@@ -1,4 +1,5 @@
 const express = require("express");
+var cors = require("cors");
 const app = require('express')()
 const server = require('http').Server(app)
 const io = require('socket.io')(server)
@@ -8,7 +9,7 @@ const passport = require("passport");
 const port = process.env.PORT || 5000;
 
 const dev = process.env.NODE_ENV !== "production";
-
+app.use(cors());
 //Routes
 const auth = require('./routes/api/auth')
 // const profile = require('./routes/api/profile')
